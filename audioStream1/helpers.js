@@ -3,6 +3,7 @@
  * @param {*} range 
  * @param {*} totalLength 
  * @returns a result object containing the start and end positions of the file
+ * @description used to calculate start and end positions for a stream based on its file size, this helps set the Range header for things like skipping
  */
 async function readRangeHeader(range, totalLength) {
     if (range == null || range.length == 0)

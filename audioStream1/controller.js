@@ -1,15 +1,20 @@
 const fs = require(`fs`);
 const Throttle = require(`throttle`);
 const path = require(`path`);
-const filename = `12-de_la_soul_feat_little_dragon-drawn-ade57ca6.mp3`;
-const filePath = path.join(__dirname, `music`, filename);
+const url = require('url');
 const {readRangeHeader,streamFile} = require(`./helpers`)
 
 async function serveStream(req, res) {
+    const queryObject = url.parse(req.url,true).query;
+    const filename = queryObject.file
+    const filePath = path.join(__dirname, `music`, filename);
     const readable = fs.createReadStream(filePath);
     const stat = fs.statSync(filePath);
-    const queryObject = url.parse(req.url,true).query;
-    console.log(queryObject);
+
+    if (!fs.existsSync(filePath)) {
+        res.writeHead(404,"File does not exist");
+        return null;
+    }
 
     const rangeRequest = await readRangeHeader(req.headers[`range`], stat.size);
  

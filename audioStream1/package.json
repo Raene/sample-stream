@@ -1,0 +1,24 @@
+{
+  "name": "audiostream1",
+  "version": "1.0.0",
+  "description": "Simple streaming service",
+  "main": "index.js",
+  "dependencies": {
+    "node-ffprobe": "^3.0.0",
+    "throttle": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raene/sample-stream.git"
+  },
+  "author": "Abdulrahman Salau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raene/sample-stream/issues"
+  },
+  "homepage": "https://github.com/Raene/sample-stream#readme"
+}

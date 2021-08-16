@@ -10,4 +10,6 @@ function catchErrors(fn) {
       return fn(req, res).catch((err)=> console.error(err));
     };
 }
-server.listen(8000);
+server.listen(8000,()=>{
+  console.log("Server is listening on port 8000")
+});
